@@ -1,3 +1,27 @@
+server:
+  port: 8070
 spring:
   application:
     name: config-single-client
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://rm-2zefi14m48oe02na8.mysql.rds.aliyuncs.com:3306/test_cms_sp?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&failOverReadOnly=false
+    hikari:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: admintest
+      password: 4kgardenP
+      maximum-pool-size: 100
+      minimum-idle: 5
+      auto-commit: true
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: select 1
+mybatis-plus:
+  mapper-locations:
+  - classpath:static/mappers/**/*.xml
+access:
+  #onOff验签开关 true开启 false关闭
+  onOff: false
+  #allow不需验签url
+  allow:
+    - "/search/initIndex"
